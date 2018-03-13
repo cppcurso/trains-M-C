@@ -10,3 +10,11 @@
 const string& Stop::getNameStop() const {
 	return nameStop;
 }
+
+unsigned int Stop::getDistanceToNext() const {
+	return distanceToNext;
+}
+
+void Stop::setDistanceToNext(unsigned int distanceToNext) {
+	this->distanceToNext = distanceToNext;
+}

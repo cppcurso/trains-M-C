@@ -19,6 +19,7 @@ public:
 	void addStop(Stop stop);
 	Stop getStop(unsigned int index);
 	Stop findStop(string name);
+	unsigned int getNumberStops();
 };
 
 #endif /* CLASSES_LINE_H_ */

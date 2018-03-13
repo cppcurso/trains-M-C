@@ -7,6 +7,10 @@
 
 #include "Line.h"
 
+Line::Line(){
+
+}
+
 void Line::addStop(Stop stop) {
 	stops.push_back(stop);
 }
@@ -27,3 +31,6 @@ Stop Line::findStop(string name) {
 	}
 }
 
+unsigned int Line::getNumberStops(){
+	return stops.size();
+}

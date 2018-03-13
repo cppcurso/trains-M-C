@@ -7,15 +7,21 @@
 
 #ifndef CLASSES_TRAIN_H_
 #define CLASSES_TRAIN_H_
+#include <chrono>
+#include <thread>
 #include "Line.h"
 
 class Train {
-	float speed;
 	Line line;
+	float speed;
 
-	Train ();// Constructor
-	void go();
-	void stop();
+public:
+	unsigned int currentStop;
+	Train (Line l, float s = 0, unsigned int cS = 0) : line(l), speed(s), currentStop(cS) {} // Constructor
+	bool isGo();
+	void move();
+	void moveAllLine();
+	void setSpeed(float speed);
 };
 
 #endif /* CLASSES_TRAIN_H_ */

@@ -16,6 +16,8 @@ class Stop {
 public:
 	Stop(string nS, unsigned int dTN = 0) : nameStop(nS), distanceToNext(dTN) {}
 	const string& getNameStop() const;
+	unsigned int getDistanceToNext() const;
+	void setDistanceToNext(unsigned int distanceToNext);
 };
 
 #endif /* CLASSES_STOP_H_ */

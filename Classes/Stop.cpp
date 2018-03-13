@@ -7,4 +7,6 @@
 
 #include "Stop.h"
 
-
+const string& Stop::getNameStop() const {
+	return nameStop;
+}

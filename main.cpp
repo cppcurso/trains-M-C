@@ -1,29 +1,51 @@
 //============================================================================
-// Name        : main.cpp
+// Name        : Ejercicio2Trenes.cpp
 // Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
+#include <thread>
 #include "Classes/Train.h"
-using namespace std;
+
+void start(Train t) {
+	t.moveAllLine(t);
+}
+
+Line createLineA() {
+	Line line;
+	Stop stop1("A1",3);
+	Stop stop2("A2",5);
+	Stop stop3("A3");
+	line.addStop(stop1);
+	line.addStop(stop2);
+	line.addStop(stop3);
+	return line;
+}
+
+Line createLineB() {
+	Line line;
+	Stop stop1("B1",3);
+	Stop stop2("B2",5);
+	Stop stop3("B3");
+	line.addStop(stop1);
+	line.addStop(stop2);
+	line.addStop(stop3);
+	return line;
+}
 
 int main() {
-	Stop stop1("parada1",3);
-	Stop stop2("parada2",5);
-	Stop stop3("parada3");
-	Line line1;
-	line1.addStop(stop1);
-	line1.addStop(stop2);
-	line1.addStop(stop3);
-	Train train(line1,1,0);
-	std::cout << "El tren esta en " << line1.getStop(train.currentStop).getNameStop() << '\n' ;
-	train.moveAllLine();
-	//Train train1;
-	//train1.speed = 0;
-	//train1.line;
+	Line lineA = createLineA();
+	Line lineB = createLineB();
+	Train trainA(lineA, "A", 1, 0);
+	Train trainB(lineB, "B", 1, 0);
 
+	vector<thread>threads;
+	threads.push_back(std::thread(start, trainA));
+	threads.push_back(std::thread(start, trainB));
 
+	for (auto& s : threads) {
+		s.join();
+	}
 }

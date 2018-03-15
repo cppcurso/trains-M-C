@@ -7,8 +7,6 @@
 
 #ifndef CLASSES_LINE_H_
 #define CLASSES_LINE_H_
-#include <vector>
-#include <typeinfo>
 #include "Stop.h"
 
 
@@ -20,6 +18,7 @@ public:
 	Stop getStop(unsigned int index);
 	Stop findStop(string name);
 	unsigned int getNumberStops();
+	void printLine();
 };
 
 #endif /* CLASSES_LINE_H_ */

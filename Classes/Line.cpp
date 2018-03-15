@@ -7,7 +7,7 @@
 
 #include "Line.h"
 
-Line::Line(){
+Line::Line() {
 
 }
 
@@ -31,6 +31,12 @@ Stop Line::findStop(string name) {
 	}
 }
 
-unsigned int Line::getNumberStops(){
+unsigned int Line::getNumberStops() {
 	return stops.size();
+}
+
+void Line::printLine() {
+	for(unsigned int i = 0; i < stops.size(); i++) {
+		cout << stops[i] << endl;
+	}
 }

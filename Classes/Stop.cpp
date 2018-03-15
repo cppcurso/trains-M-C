@@ -18,3 +18,7 @@ unsigned int Stop::getDistanceToNext() const {
 void Stop::setDistanceToNext(unsigned int distanceToNext) {
 	this->distanceToNext = distanceToNext;
 }
+
+/*mutex Stop::getmStop() {
+	return mStop;
+}*/

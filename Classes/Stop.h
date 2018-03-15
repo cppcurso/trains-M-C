@@ -11,14 +11,18 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <mutex>
 #include <typeinfo>
 using namespace std;
 
 class Stop {
 	string nameStop;
 	unsigned int distanceToNext;
+	unsigned int platform;
+
 public:
-	Stop(string nS, unsigned int dTN = 0) : nameStop(nS), distanceToNext(dTN) {}
+	mutex mStop;
+	Stop(string nS, unsigned int dTN = 0, unsigned int p = 1) : nameStop(nS), distanceToNext(dTN), platform(1) {}
 	const string& getNameStop() const;
 	unsigned int getDistanceToNext() const;
 	void setDistanceToNext(unsigned int distanceToNext);
@@ -26,6 +30,7 @@ public:
 		os << s.getNameStop();
 		return os;
 	}
+	//mutex getmStop();
 };
 
 #endif /* CLASSES_STOP_H_ */

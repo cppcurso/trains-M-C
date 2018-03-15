@@ -11,22 +11,22 @@ Line::Line() {
 
 }
 
-void Line::addStop(Stop stop) {
+void Line::addStop(Stop* stop) {
 	stops.push_back(stop);
 }
 
-Stop Line::getStop(unsigned int index) {
+Stop* Line::getStop(unsigned int index) {
 	if (index > stops.size()) {
 		throw "Fuera de rango";
 	}
 	return stops[index];
 }
 
-Stop Line::findStop(string name) {
-	vector<Stop>::iterator it;
-	for (it = stops.begin(); it < stops.end(); it++) {
-		if (name == it->getNameStop()) {
-			return Stop (it->getNameStop());
+Stop* Line::findStop(string name) {
+	for (unsigned int i = 0; i < stops.size(); i++) {
+		if (name == stops[i]->getNameStop()) {
+			Stop* stop = new Stop(stops[i]->getNameStop());
+			return stop;
 		}
 	}
 }

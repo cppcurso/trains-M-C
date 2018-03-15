@@ -9,14 +9,13 @@
 #define CLASSES_LINE_H_
 #include "Stop.h"
 
-
 class Line {
-	vector<Stop>stops;
+	vector<Stop*>stops;
 public:
 	Line();
-	void addStop(Stop stop);
-	Stop getStop(unsigned int index);
-	Stop findStop(string name);
+	void addStop(Stop* stop);
+	Stop* getStop(unsigned int index);
+	Stop* findStop(string name);
 	unsigned int getNumberStops();
 	void printLine();
 };
